@@ -14,11 +14,45 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('feed');
+})->name('feed');
+
+
+Route::get('/add', function(){
+    return view('add');
+})->middleware(['auth'])->name('add-crime-page');
+
+Route::get('/my', function(){
+    return view('profile');
+})->middleware(['auth'])->name('my');
+
+// Edit du profile pour plus tard (pas primordiale)
+Route::get('/my/edit', function(){
+    return view('profile');
+})->middleware(['auth'])->name('edit-profile');
+
+
+
+Route::get('/stats', function(){
+    return view('stats');
+})->name('stat');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+//Route API 
+
+Route::post('/api/crime', function(){
+    
+})->middleware(['auth'])->name('api.add-crime');
+
+Route::patch('/api/crime/{id}', function(){
+
+})->middleware(['auth'])->name('api.edit-crime');
+
+Route::delete('/api/crime/{id}',function(){
+
+})->middleware(['auth'])->name('api.delete-crime');
 
 require __DIR__.'/auth.php';
