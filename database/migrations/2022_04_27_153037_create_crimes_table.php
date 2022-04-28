@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('victim');
-            $table->date('crime_date');
             $table->timestamps();
         });
     }
