@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +23,13 @@ Route::get('/add', function(){
     return view('add');
 })->middleware(['auth'])->name('add-crime-page');
 
-Route::get('/my', function(){
-    return view('profile');
-})->middleware(['auth'])->name('my');
+Route::get('/my', [ProfileController::class, 'show'])
+    ->middleware(['auth'])
+    ->name('my');
+
+// Route::get('/my', function(){
+//     return view('profile');
+// })->middleware(['auth'])->name('my');
 
 // Edit du profile pour plus tard (pas primordiale)
 Route::get('/my/edit', function(){
