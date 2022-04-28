@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Crime;
-use App\Models\Weapon;
-use App\Models\City;
 
 class ApiController extends Controller
 {
@@ -26,11 +24,32 @@ class ApiController extends Controller
         return redirect()->route('feed', ['postedCrimeId' => $newCrime->id]);
     }
 
-    public function editCrime () {
+    public function editCrime (Request $request) {
+        $currentAuthUserId = auth()->user()->id;
+        $toEditCrime = Crime::findOrFail($request->id);
 
+        if ($toEditCrime->user_id === $currentAuthUserId) {
+            $toEditCrime->title = $request->title;
+            $toEditCrime->description = $request->description;
+            $toEditCrime->city_id = $request->city_id;
+            $toEditCrime->user_id = $currentAuthUserId;
+            $toEditCrime->weapon_id = $request->weapon_id;
+            $toEditCrime->victim = $request->victim;
+            return redirect()->route('feed');
+        } else {
+            return abort(403);
+        }
     }
 
-    public function deleteCrime () {
+    public function deleteCrime (Request $request) {
+        $currentAuthUserId = auth()->user()->id;
+        $toDeletedCrime = Crime::findOrFail($request->id);
 
+        if ($toDeletedCrime->user_id === $currentAuthUserId) {
+            $toDeletedCrime->delete();
+            return redirect()->route('feed');
+        } else {
+            return abort(403);
+        }
     }
 }
