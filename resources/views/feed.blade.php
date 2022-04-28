@@ -18,7 +18,7 @@
     <h1>
         Feed
     </h1>
-    @auth
+    {{-- @auth
         @if(count($crimes) > 0)
             @foreach($crimes as $crime)
                 <article>
@@ -33,5 +33,5 @@
         @endif
     @else
         <p>You need to login to view posts</p>
-    @endauth
+    @endauth --}}
 </x-app-layout>
