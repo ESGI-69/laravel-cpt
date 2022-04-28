@@ -24,20 +24,25 @@ Route::get('/add', function(){
     return view('add');
 })->middleware(['auth'])->name('add-crime-page');
 
-Route::get('/my', [ProfileController::class, 'show'])
+Route::get('/my', [ProfileController::class, 'showProfile'])
     ->middleware(['auth'])
     ->name('my');
 
-// Route::get('/my', function(){
-//     return view('profile');
-// })->middleware(['auth'])->name('my');
 
-// Edit du profile pour plus tard (pas primordiale)
-Route::get('/my/edit', function(){
-    return view('profile');
-})->middleware(['auth'])->name('edit-profile');
+Route::get('/my/edit/{user}', [ProfileController::class, 'editProfile'])
+  ->middleware(['auth', 'rightUser'])
+  ->name('my.edit');
 
+Route::patch('/my/edit/{user}', [ProfileController::class, 'updateProfile'])
+  ->middleware(['auth', 'rightUser'])
+  ->name('my.update');
 
+// Route::get('/messages/{message}', [WallController::class, 'show'])
+//     ->middleware(['auth'])
+//     ->name('messages.show');
+// Route::patch('/messages/{message}', [WallController::class, 'update'])
+//     ->middleware(['auth'])
+//     ->name('messages.update');
 
 Route::get('/stats', function(){
     return view('stats');

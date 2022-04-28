@@ -41,6 +41,15 @@
                 {{ $slot  }}
             </div>
         </div>
-        <img src="https://media.giphy.com/media/1oE3Ee4299mmXN8OYb/giphy.gif" class="image">
+        <div class="medias-gifs">
+          <img src="https://media.giphy.com/media/1oE3Ee4299mmXN8OYb/giphy.gif" class="image">
+          <br>
+          <video controls width="300" loop autoplay muted>
+            <source src="assets/dogo.mp4" type="video/mp4">
+          </video>
+          <br>
+          <a href="https://twitter.com/3Dgifdubstep" target="_blank">⚠️⚠️BEST TWITTER ACCOUNT ⚠️⚠️</a>
+        </div>
+        
     </body>
 </html>
