@@ -7,6 +7,7 @@
                 {{ __('Log Out') }}
             </button>
         </form>
+        <a href="{{ route('add-crime-page') }}">Ajouter un crime </a>
     @else
         <a href="{{ route('login') }}">
             Login
@@ -32,7 +33,7 @@
                     <p>
                         {{ $crime->description }}
                     </p>
-
+                    
                 </article>
             @endforeach
             {{ $crimes->links() }}
