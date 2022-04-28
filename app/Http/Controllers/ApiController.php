@@ -25,4 +25,12 @@ class ApiController extends Controller
 
         return redirect()->route('feed', ['postedCrimeId' => $newCrime->id]);
     }
+
+    public function editCrime () {
+
+    }
+
+    public function deleteCrime () {
+
+    }
 }
