@@ -23,9 +23,16 @@
         @if(count($crimes) > 0)
             @foreach($crimes as $crime)
                 <article>
-                    <h3>
-                        {{ $crime }}
-                    </h3>
+                    <h2>
+                        {{ $crime->title }}
+                    </h2>
+                    <p>
+                        Victime : {{ $crime->victim }}
+                    </p>
+                    <p>
+                        {{ $crime->description }}
+                    </p>
+
                 </article>
             @endforeach
             {{ $crimes->links() }}
