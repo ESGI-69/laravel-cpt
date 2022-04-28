@@ -21,6 +21,8 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Weapon::class);
             $table->foreignIdFor(City::class);
+            $table->string('title');
+            $table->string('description');
             $table->string('victim');
             $table->date('crime_date');
             $table->timestamps();
