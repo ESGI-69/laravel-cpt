@@ -10,15 +10,19 @@ use App\Models\City;
 class ApiController extends Controller
 {
     public function createCrime (Request $request) {
+        $currentAuthUserId = auth()->user()->id;
+
         $newCrime = new Crime;
 
         $newCrime->title = $request->title;
         $newCrime->description = $request->description;
-        $newCrime->city = City::findOrFail($request->cityId);
+        $newCrime->city_id = $request->city_id;
+        $newCrime->user_id = $currentAuthUserId;
+        $newCrime->weapon_id = $request->weapon_id;
+        $newCrime->victim = $request->victim;
 
         $newCrime->save();
 
-        $postedCrimeId = 5;
-        return redirect()->route('feed', [$postedCrimeId]);
+        return redirect()->route('feed', ['postedCrimeId' => $newCrime->id]);
     }
 }

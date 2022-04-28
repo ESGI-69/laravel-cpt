@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +44,7 @@ Route::get('/dashboard', function () {
 
 //Route API
 
-Route::post('/api/crime', function(){
-
-})->middleware(['auth'])->name('api.add-crime');
+Route::post('/api/crime', [ApiController::class, 'createCrime'])->middleware(['auth'])->name('api.add-crime');
 
 Route::patch('/api/crime/{id}', function(){
 
