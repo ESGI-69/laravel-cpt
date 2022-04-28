@@ -44,14 +44,10 @@ Route::get('/dashboard', function () {
 
 //Route API
 
-Route::post('/api/crime', [ApiController::class, 'createCrime'])->middleware(['auth'])->name('api.add-crime');
-
-Route::patch('/api/crime/{id}', function(){
-
-})->middleware(['auth'])->name('api.edit-crime');
-
-Route::delete('/api/crime/{id}',function(){
-
-})->middleware(['auth'])->name('api.delete-crime');
+Route::controller(ApiController::class)->group(function () {
+    Route::post('/api/crime', 'createCrime')->middleware(['auth'])->name('api.add-crime');
+    Route::patch('/api/crime/{id}', 'editCrime')->middleware(['auth'])->name('api.edit-crime');
+    Route::delete('/api/crime/{id}', 'deleteCrime')->middleware(['auth'])->name('api.delete-crime');
+});
 
 require __DIR__.'/auth.php';
