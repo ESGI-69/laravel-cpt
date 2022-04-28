@@ -31,8 +31,6 @@ Route::get('/my/edit', function(){
     return view('profile');
 })->middleware(['auth'])->name('edit-profile');
 
-
-
 Route::get('/stats', function(){
     return view('stats');
 })->name('stat');
