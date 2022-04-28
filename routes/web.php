@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('feed');
+    return view('feed', ['crimes' => []]);
 })->name('feed');
 
 
@@ -41,10 +41,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-//Route API 
+//Route API
 
 Route::post('/api/crime', function(){
-    
+
 })->middleware(['auth'])->name('api.add-crime');
 
 Route::patch('/api/crime/{id}', function(){
