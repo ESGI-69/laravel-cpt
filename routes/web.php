@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Models\Crime;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,9 @@ use App\Http\Controllers\ApiController;
 */
 
 Route::get('/', function () {
-    return view('feed', ['crimes' => []]);
+    // return view('feed', ['crimes' => []]);
+    $crimes = Crime::paginate(25); //On montre les 25 permiers crimes
+    return view('feed', compact('crimes'));
 })->name('feed');
 
 
@@ -38,9 +41,9 @@ Route::get('/stats', function(){
     return view('stats');
 })->name('stat');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 //Route API
 

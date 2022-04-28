@@ -18,15 +18,17 @@
     <h1>
         Feed
     </h1>
+
     @auth
         @if(count($crimes) > 0)
             @foreach($crimes as $crime)
                 <article>
                     <h3>
-                        {{ $crime->title }}
+                        {{ $crime }}
                     </h3>
                 </article>
             @endforeach
+            {{ $crimes->links() }}
         @else
             <p><b>There is no crime on record.</b></p>
             <a href="{{ route('add-crime-page') }}" >Add your crime to the record now for free !!!</a>
