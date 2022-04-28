@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+// const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     content: [
@@ -7,13 +7,13 @@ module.exports = {
         './resources/views/**/*.blade.php',
     ],
 
-    theme: {
+    /* theme: {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
-    },
+    }, */
 
-    plugins: [require('@tailwindcss/forms')],
+    /* plugins: [require('@tailwindcss/forms')], */
 };
