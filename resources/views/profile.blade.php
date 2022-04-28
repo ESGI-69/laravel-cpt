@@ -1,14 +1,18 @@
-<x-app-layout>
+<x-app-layout class="app">
   <h1>Profile</h1>
   <h2>Hello {{ $user['name'] }}</h2>
-
+  {{-- @dd($crimes) --}}
     @foreach ($crimes as $crime)
-    <ul>
-      <li>{{ $crime['title'] }}</li>
-      <li>{{ $crime['description'] }}</li>
-      <li>{{ $crime['weapon_id'] }}</li>
-      <li>{{ $crime['created_at'] }}</li>
+    <br>
+    <ul style="background-color: crimson">
+      <li>title : {{ $crime->title }}</li>
+      <li>description : {{ $crime->description }}</li>
+      <li>weapon used : {{ $crime->weapon->name }}</li>
+      <li>date : {{ $crime->created_at }}</li>
+      <li>city : {{ $crime->city->name }}</li>
+      <li>country : {{ $crime->city->country->name }}</li>
     </ul>
+    <br>
     @endforeach
   
 </x-app-layout>
