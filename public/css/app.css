@@ -4,6 +4,20 @@
 
 .app {
     background-image: url("../assets/144p-garfield.gif");
+    font-family: "Comic Sans MS";
+    display: flex;
+    justify-content: space-between;
+}
+
+.app img {
+    transform: rotate(0deg);
+    transition: all 1s ease;
+    animation: 2s ease infinite alternate rotate;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
 
 * {
@@ -14,10 +28,25 @@ a, button, input {
     cursor: url(https://cdn.custom-cursor.com/db/9691/32/among-us-stormtrooper-pointer.png) , pointer!important;
 }
 
-.app .slot {
+.app .content {
     background: rgba(255, 0, 0, 0.85);
     color: lime;
     width: fit-content;
-    padding: 0 15vh;
+    padding: 30px 15vh;
     border: blue dotted 2vw;
+    border-radius: 20vw;
+    box-shadow: gold 30px 30px;
+    transform: rotate(20deg);
+}
+
+button {
+    border-radius: 50%;
+    background: coral;
+    color: aquamarine;
+}
+
+button:hover {
+    border-radius: 0;
+    background: blue;
+    color: lightgoldenrodyellow;
 }

@@ -17,12 +17,30 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="app">
-        <div class="slot">
-            {{ asset('css/app.css') }}
-            {{ $slot  }}
+        <div class="content">
+            <audio controls autoplay loop id="playAudio">
+                <source src="{{ asset('assets/wii-theme-earrape.mp3') }}">
+            </audio>
+            @auth
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
+                        {{ __('Log Out') }}
+                    </button>
+                </form>
+            @else
+                <a href="{{ route('login') }}">
+                    Login
+                </a>
+                <a href="{{ route('register') }}">
+                    Register
+                </a>
+            @endauth
+            <div>
+                {{ $slot  }}
+            </div>
         </div>
+        <img src="https://media.giphy.com/media/1oE3Ee4299mmXN8OYb/giphy.gif" class="image">
     </body>
-    <audio controls autoplay loop id="playAudio">
-        <source src="{{ asset('assets/wii-theme-earrape.mp3') }}">
-    </audio>
 </html>
