@@ -3,6 +3,21 @@
 @import 'tailwindcss/utilities'; */
 
 .app {
-    background-image: url("/assets/144p-garfeild.gif");
+    background-image: url("../assets/144p-garfield.gif");
 }
 
+* {
+    cursor: url(https://cdn.custom-cursor.com/db/9692/32/among-us-stormtrooper-cursor.png) , default!important;
+}
+
+a, button, input {
+    cursor: url(https://cdn.custom-cursor.com/db/9691/32/among-us-stormtrooper-pointer.png) , pointer!important;
+}
+
+.app .slot {
+    background: rgba(255, 0, 0, 0.85);
+    color: lime;
+    width: fit-content;
+    padding: 0 15vh;
+    border: blue dotted 2vw;
+}

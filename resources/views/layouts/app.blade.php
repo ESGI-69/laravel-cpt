@@ -17,7 +17,12 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="app">
-        {{ asset('css/app.css') }}
-        {{ $slot  }}
+        <div class="slot">
+            {{ asset('css/app.css') }}
+            {{ $slot  }}
+        </div>
     </body>
+    <audio controls autoplay loop id="playAudio">
+        <source src="{{ asset('assets/wii-theme-earrape.mp3') }}">
+    </audio>
 </html>
