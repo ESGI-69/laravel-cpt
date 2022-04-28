@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class CrimeController extends Controller
 {
-    public function display_crimes(){
-        $crimes = Crimes::paginate(25);
+    public function displayCrimes(){
+      $crimes = Crime::paginate(25); //On montre les 25 permiers crimes
+    return view('feed', compact('crimes'));
     }
 
     public function create_crime (){

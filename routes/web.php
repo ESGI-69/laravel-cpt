@@ -15,11 +15,7 @@ use App\Models\Crime;
 |
 */
 
-Route::get('/', function () {
-    // return view('feed', ['crimes' => []]);
-    $crimes = Crime::paginate(25); //On montre les 25 permiers crimes
-    return view('feed', compact('crimes'));
-})->name('feed');
+Route::get('/', [CrimeController::class, 'displayCrimes'])->name('feed');
 
 
 Route::get('/add', function(){
