@@ -18,8 +18,9 @@ use App\Models\Crime;
 
 Route::get('/', [CrimeController::class, 'displayCrimes'])->name('feed');
 
-
-Route::get('/add', [CrimeController::class, 'displayWeapons'])->middleware(['auth'])->name('add-crime-page');
+Route::get('/add', [CrimeController::class, 'addCrime'])
+->middleware(['auth'])
+->name('add-crime-page');
 
 Route::get('/my', function(){
     return view('profile');

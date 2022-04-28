@@ -1,6 +1,6 @@
 <x-app-layout>
     <h1>Ajouter un crime</h1>
-    <form action="{{ route('api.add-crime') }}" method="POST">
+    <form method="POST" action="{{ route('custom-api.add-crime') }}">
         Titre    <input type="text" placeholder="titre" name="title">
         <br>
         description    <input type="text"  name="description">
@@ -9,7 +9,12 @@
         <br>
         Arme <select name="weapon">
             @foreach ($weapons as $weapon)
-               <option> {{ $weapon }} </option>
+               <option value='{{ $weapon->id }}'> {{ $weapon->name }} </option>
+            @endforeach
+        </select>
+            Ville <select name="weapon">
+            @foreach ($cities as $city)
+               <option value='{{ $city->id }}'> {{ $city->name }} </option>
             @endforeach
         </select>
         <button>Ajouter</button>
