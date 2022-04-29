@@ -9,7 +9,7 @@ class ApiController extends Controller
 {
     public function createCrime (Request $request) {
         $currentAuthUserId = auth()->user()->id;
-
+        
         $newCrime = new Crime;
 
         $newCrime->title = $request->title;
@@ -27,7 +27,6 @@ class ApiController extends Controller
     public function editCrime (Request $request) {
         $currentAuthUserId = auth()->user()->id;
         $toEditCrime = Crime::findOrFail($request->id);
-
         if ($toEditCrime->user_id === $currentAuthUserId) {
             $toEditCrime->title = $request->title;
             $toEditCrime->description = $request->description;
