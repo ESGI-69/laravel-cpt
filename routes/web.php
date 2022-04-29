@@ -43,10 +43,6 @@ Route::get('/stats', function(){
     return view('stats');
 })->name('stat');
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
-
 //Route API
 
 Route::controller(ApiController::class)->group(function () {
