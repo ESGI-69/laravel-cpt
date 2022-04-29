@@ -43,5 +43,5 @@
         @endif
     @else
         <p>You need to login to view posts</p>
-    @endauth --}}
+    @endauth
 </x-app-layout>

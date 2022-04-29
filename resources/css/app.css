@@ -3,7 +3,6 @@
 @import 'tailwindcss/utilities'; */
 
 .app {
-    background-image: url("../assets/144p-garfield.gif");
     font-family: "Comic Sans MS";
     display: flex;
     justify-content: space-between;
@@ -54,4 +53,22 @@ button:hover {
 .medias-gifs {
   display: flex;
   flex-direction: column;
+}
+
+.welcome-title {
+  text-align: center;
+}
+
+.welcome-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.welcome-div img {
+  transform: none;
+  transition: none;
+  animation: none;
+  width: 80px;
+  height: 80px;
 }
