@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Crime extends Model
-{    
+{
     use HasFactory;
 
     public function weapon()
@@ -17,7 +17,11 @@ class Crime extends Model
     {
         return $this->belongsTo(City::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     protected $fillable = ['body'];
-    
+
 
 }

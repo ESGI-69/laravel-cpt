@@ -58,6 +58,7 @@ button:hover {
     color: lightgoldenrodyellow;
 }
 
+<<<<<<< HEAD
 .medias-gifs {
   display: flex;
   flex-direction: column;
@@ -93,3 +94,8 @@ button:hover {
   margin-left: 8px;
 }
 
+=======
+article {
+    background: purple;
+}
+>>>>>>> deac1f1 (feat(feed): add delete crime button)

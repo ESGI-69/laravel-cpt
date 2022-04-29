@@ -9,7 +9,7 @@ class ApiController extends Controller
 {
     public function createCrime (Request $request) {
         $currentAuthUserId = auth()->user()->id;
-        
+
         $newCrime = new Crime;
 
         $newCrime->title = $request->title;
