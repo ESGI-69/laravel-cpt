@@ -58,7 +58,7 @@ class ApiController extends Controller
     {
       $weapon = Weapon::create([
         'name' => $request->name,
-        'type' => $request->type,
+        'wtype_id' => $request->wtype_id,
       ]);
 
       return redirect()->route('add-weapon');

@@ -9,13 +9,13 @@ class Weapon extends Model
 {
   use HasFactory;
 
-  public function city()
+  public function wtype()
   {
     return $this->belongsTo(Wtype::class);
   }
 
   protected $fillable = [
     'name',
-    'type',
+    'wtype_id',
   ];
 }
