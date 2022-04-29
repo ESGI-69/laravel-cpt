@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Weapon extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $fillable = [
-      'name',
-      'type',
+  public function city()
+  {
+    return $this->belongsTo(Wtype::class);
+  }
+
+  protected $fillable = [
+    'name',
+    'type',
   ];
-
 }
