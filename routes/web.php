@@ -56,7 +56,7 @@ Route::controller(ApiController::class)->group(function () {
     Route::put('/custom-api/crime', 'editCrime')->middleware(['auth'])->name('custom-api.edit-crime');
     Route::delete('/custom-api/crime', 'deleteCrime')->middleware(['auth'])->name('custom-api.delete-crime');
     Route::post('/custom-api/weapon', 'createWeapon')->middleware(['auth'])->name('custom-api.add-weapon');
-
+    Route::post('/custom-api/wtype', 'createWtype')->middleware(['auth'])->name('custom-api.add-wtype');
 });
 
 require __DIR__.'/auth.php';
