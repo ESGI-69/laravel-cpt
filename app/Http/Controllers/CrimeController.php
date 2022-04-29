@@ -11,7 +11,7 @@ use App\Models\City;
 class CrimeController extends Controller
 {
     public function displayCrimes(){
-        $currentAuthUserId = auth()->user()->id;
+        $currentAuthUserId = auth()->check() ? auth()->user()->id : null;
         $crimes = Crime::orderBy('created_at', 'desc')->paginate(5); //On montre les 25 permiers crimes
         return view('feed', compact('crimes', 'currentAuthUserId'));
     }
