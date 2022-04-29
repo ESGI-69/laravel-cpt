@@ -11,10 +11,11 @@ use App\Models\City;
 class CrimeController extends Controller
 {
     public function displayCrimes(){
-      $crimes = Crime::paginate(25); //On montre les 25 permiers crimes
-      return view('feed', compact('crimes'));
+        $currentAuthUserId = auth()->user()->id;
+        $crimes = Crime::orderBy('created_at', 'desc')->paginate(5); //On montre les 25 permiers crimes
+        return view('feed', compact('crimes', 'currentAuthUserId'));
     }
-    
+
     public function addCrime(){
         $weapons = Weapon::all();
         $cities = City::all();
@@ -29,7 +30,7 @@ class CrimeController extends Controller
     }
 
     public function create_crime (){
-        
+
     }
     public function delete_crime(){
 
