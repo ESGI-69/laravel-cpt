@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\CrimeController;
+use App\Models\Crime;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,14 +16,11 @@ use App\Http\Controllers\ApiController;
 |
 */
 
-Route::get('/', function () {
-    return view('feed', ['crimes' => []]);
-})->name('feed');
+Route::get('/', [CrimeController::class, 'displayCrimes'])->name('feed');
 
-
-Route::get('/add', function(){
-    return view('add');
-})->middleware(['auth'])->name('add-crime-page');
+Route::get('/add', [CrimeController::class, 'addCrime'])
+->middleware(['auth'])
+->name('add-crime-page');
 
 Route::get('/my', function(){
     return view('profile');
@@ -38,9 +37,9 @@ Route::get('/stats', function(){
     return view('stats');
 })->name('stat');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 //Route API
 

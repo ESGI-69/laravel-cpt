@@ -7,6 +7,7 @@
                 {{ __('Log Out') }}
             </button>
         </form>
+        <a href="{{ route('add-crime-page') }}">Ajouter un crime </a>
     @else
         <a href="{{ route('login') }}">
             Login
@@ -18,15 +19,24 @@
     <h1>
         Feed
     </h1>
+
     @auth
         @if(count($crimes) > 0)
             @foreach($crimes as $crime)
                 <article>
-                    <h3>
+                    <h2>
                         {{ $crime->title }}
-                    </h3>
+                    </h2>
+                    <p>
+                        Victime : {{ $crime->victim }}
+                    </p>
+                    <p>
+                        {{ $crime->description }}
+                    </p>
+                    
                 </article>
             @endforeach
+            {{ $crimes->links() }}
         @else
             <p><b>There is no crime on record.</b></p>
             <a href="{{ route('add-crime-page') }}" >Add your crime to the record now for free !!!</a>
