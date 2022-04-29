@@ -34,6 +34,8 @@ class ApiController extends Controller
             $toEditCrime->user_id = $currentAuthUserId;
             $toEditCrime->weapon_id = $request->weapon_id;
             $toEditCrime->victim = $request->victim;
+
+            $toEditCrime->save();
             return redirect()->route('feed');
         } else {
             return abort(403);

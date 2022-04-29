@@ -2,9 +2,11 @@
     <h1>EdiTer un cRimE</h1>
     <form method="POST" action="{{ route('custom-api.edit-crime') }}">
         @csrf
-        Titre    <input type="text" placeholder="titre" name="title" value={{ $crime->title }}>
+        @method('PUT');
+        <input type="hidden" name="id" value="{{ $crime->id }}">
+        Titre    <input type="text" placeholder="titre" name="title" value="{{ $crime->title }}">
         <br>
-        description   <input type="text"  name="description" value={{ $crime->description }}>
+        description   <input type="text"  name="description" value="{{ $crime->description }}">
         <br>
         Victime <input type="text"  name="victim" value="{{ $crime->victim }}">
         <br>
