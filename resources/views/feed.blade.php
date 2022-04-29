@@ -33,7 +33,9 @@
                     <p>
                         {{ $crime->description }}
                     </p>
-                    
+                    <a href="{{ route('edit-crime-page', ["id" => $crime->id]) }}">
+                        Modifier
+                    </a>
                 </article>
             @endforeach
             {{ $crimes->links() }}

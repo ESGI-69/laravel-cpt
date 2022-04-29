@@ -27,6 +27,10 @@ Route::get('/my', [ProfileController::class, 'showProfile'])
     ->middleware(['auth'])
     ->name('my');
 
+Route::get('/edit/{id}', [CrimeController::class, 'editCrime'])
+->middleware(['auth'])
+->name('edit-crime-page');
+
 
 Route::get('/my/edit/{user}', [ProfileController::class, 'editProfile'])
   ->middleware(['auth', 'rightUser'])
