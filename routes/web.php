@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CrimeController;
 use App\Http\Controllers\WeaponController;
+use App\Http\Controllers\StatController;
 use App\Models\Crime;
 
 /*
@@ -44,9 +45,9 @@ Route::patch('/my/edit/{user}', [ProfileController::class, 'updateProfile'])
   ->middleware(['auth', 'rightUser'])
   ->name('my.update');
 
-Route::get('/stats', function(){
-    return view('stats');
-})->name('stat');
+Route::get('/stats', [StatController::class, 'displayStat'] )
+-> middleware(['auth'])
+->name('stat');
 
 //Route API
 
