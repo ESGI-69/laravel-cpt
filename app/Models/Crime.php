@@ -17,4 +17,7 @@ class Crime extends Model
     {
         return $this->belongsTo(City::class);
     }
+    protected $fillable = ['body'];
+    
+
 }
