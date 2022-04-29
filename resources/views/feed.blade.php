@@ -2,10 +2,9 @@
     <h1>
         Feed
     </h1>
-
     @auth
+    <a href="{{ route('add-crime-page') }}">Ajouter un crime </a>
         @if(count($crimes) > 0)
-            <a href="{{ route('add-crime-page') }}">Ajouter un crime </a>
             @foreach($crimes as $crime)
                 <article>
                     <h2>

@@ -3,62 +3,73 @@
 @import 'tailwindcss/utilities'; */
 
 .app {
-    font-family: "Comic Sans MS";
-    display: flex;
-    justify-content: space-between;
+  font-family: "Comic Sans MS";
+  display: flex;
+  justify-content: space-between;
 }
 
 .app img {
-    transform: rotate(0deg);
-    transition: all 1s ease;
-    -webkit-animation: 2s ease infinite alternate rotate;
-            animation: 2s ease infinite alternate rotate;
+  transform: rotate(0deg);
+  transition: all 1s ease;
+  -webkit-animation: 2s ease infinite alternate rotate;
+          animation: 2s ease infinite alternate rotate;
 }
 
 @-webkit-keyframes rotate {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 * {
-    cursor: url(https://cdn.custom-cursor.com/db/9692/32/among-us-stormtrooper-cursor.png) , default!important;
+  cursor: url(https://cdn.custom-cursor.com/db/9692/32/among-us-stormtrooper-cursor.png), default !important;
 }
 
-a, button, input {
-    cursor: url(https://cdn.custom-cursor.com/db/9691/32/among-us-stormtrooper-pointer.png) , pointer!important;
+a,
+button,
+input {
+  cursor: url(https://cdn.custom-cursor.com/db/9691/32/among-us-stormtrooper-pointer.png), pointer !important;
 }
 
 .app .content {
-    background: rgba(255, 0, 0, 0.85);
-    color: lime;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    padding: 30px 15vh;
-    border: blue dotted 2vw;
-    border-radius: 20vw;
-    box-shadow: gold 30px 30px;
-    transform: rotate(20deg);
+  background: rgba(255, 0, 0, 0.85);
+  color: lime;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 30px 15vh;
+  border: blue dotted 2vw;
+  border-radius: 20vw;
+  box-shadow: gold 30px 30px;
+  transform: rotate(20deg);
 }
 
 button {
-    border-radius: 50%;
-    background: coral;
-    color: aquamarine;
+  border-radius: 50%;
+  background: coral;
+  color: aquamarine;
 }
 
 button:hover {
-    border-radius: 0;
-    background: blue;
-    color: lightgoldenrodyellow;
+  border-radius: 0;
+  background: blue;
+  color: lightgoldenrodyellow;
 }
 
-<<<<<<< HEAD
 .medias-gifs {
   display: flex;
   flex-direction: column;
@@ -94,8 +105,14 @@ button:hover {
   margin-left: 8px;
 }
 
-=======
-article {
-    background: purple;
+.login-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
->>>>>>> deac1f1 (feat(feed): add delete crime button)
+
+.container-audio {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

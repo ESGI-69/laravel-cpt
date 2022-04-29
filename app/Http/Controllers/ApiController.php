@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Crime;
+use App\Models\Weapon;
+use App\Models\Wtype;
 
 class ApiController extends Controller
 {
@@ -52,5 +54,23 @@ class ApiController extends Controller
         } else {
             return abort(403);
         }
+    }
+    public function createWeapon (Request $request) 
+    {
+      $weapon = Weapon::create([
+        'name' => $request->name,
+        'wtype_id' => $request->wtype_id,
+      ]);
+
+      return redirect()->route('add-weapon');
+    }
+    
+    public function createWtype (Request $request) 
+    {
+      $wtype = Wtype::create([
+        'name' => $request->name,
+      ]);
+
+      return redirect()->route('add-weapon');
     }
 }
