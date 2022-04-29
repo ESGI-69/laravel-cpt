@@ -30,18 +30,10 @@ class ProfileController extends Controller
     public function updateProfile(Request $request, User $user)
     {
       $user->update([
-        'body' => $request->body,
+        'name' => $request->name,
+        'email' => $request->email,
       ]);
 
       return redirect()->route('my.edit', ['user' => $user]);
     }
-
-    // public function update(Request $request, Message $message)
-    // {
-    //     $message->update([
-    //         'body' => $request->body,
-    //     ]);
-
-    //     return redirect()->route('messages.show', ['message' => $message]);
-    // }
 }

@@ -27,7 +27,6 @@ Route::get('/my', [ProfileController::class, 'showProfile'])
     ->middleware(['auth'])
     ->name('my');
 
-
 Route::get('/my/edit/{user}', [ProfileController::class, 'editProfile'])
   ->middleware(['auth', 'rightUser'])
   ->name('my.edit');
@@ -35,13 +34,6 @@ Route::get('/my/edit/{user}', [ProfileController::class, 'editProfile'])
 Route::patch('/my/edit/{user}', [ProfileController::class, 'updateProfile'])
   ->middleware(['auth', 'rightUser'])
   ->name('my.update');
-
-// Route::get('/messages/{message}', [WallController::class, 'show'])
-//     ->middleware(['auth'])
-//     ->name('messages.show');
-// Route::patch('/messages/{message}', [WallController::class, 'update'])
-//     ->middleware(['auth'])
-//     ->name('messages.update');
 
 Route::get('/stats', function(){
     return view('stats');
