@@ -1,24 +1,10 @@
 <x-app-layout>
-    @auth
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-        </form>
-        <a href="{{ route('add-crime-page') }}">Ajouter un crime </a>
-    @else
-        <a href="{{ route('login') }}">
-            Login
-        </a>
-        <a href="{{ route('register') }}">
-            Register
-        </a>
-    @endauth
     <h1>
         Feed
     </h1>
-
     @auth
+    <a href="{{ route('add-crime-page') }}">Ajouter un crime </a>
         @if(count($crimes) > 0)
-            <a href="{{ route('add-crime-page') }}">Ajouter un crime </a>
             @foreach($crimes as $crime)
                 <article>
                     <h2>
