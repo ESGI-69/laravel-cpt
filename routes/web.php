@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CrimeController;
@@ -22,16 +23,17 @@ Route::get('/add', [CrimeController::class, 'addCrime'])
 ->middleware(['auth'])
 ->name('add-crime-page');
 
-Route::get('/my', function(){
-    return view('profile');
-})->middleware(['auth'])->name('my');
+Route::get('/my', [ProfileController::class, 'showProfile'])
+    ->middleware(['auth'])
+    ->name('my');
 
-// Edit du profile pour plus tard (pas primordiale)
-Route::get('/my/edit', function(){
-    return view('profile');
-})->middleware(['auth'])->name('edit-profile');
+Route::get('/my/edit/{user}', [ProfileController::class, 'editProfile'])
+  ->middleware(['auth', 'rightUser'])
+  ->name('my.edit');
 
-
+Route::patch('/my/edit/{user}', [ProfileController::class, 'updateProfile'])
+  ->middleware(['auth', 'rightUser'])
+  ->name('my.update');
 
 Route::get('/stats', function(){
     return view('stats');

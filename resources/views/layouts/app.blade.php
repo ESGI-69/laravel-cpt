@@ -16,8 +16,13 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="app">
+    <body class="app" style="background-image: url({{ asset('assets/144p-garfield.gif') }})">
         <div class="content">
+          <div class="welcome-div">
+            <img src="{{asset('assets/dallas.gif')}}" alt="dallas">
+            <p class="welcome-title">Welcome on {{config('app.name')}}</p>
+            <img src="{{asset('assets/dallas.gif')}}" alt="dallas">
+          </div>
             <audio controls autoplay loop id="playAudio">
                 <source src="{{ asset('assets/wii-theme-earrape.mp3') }}">
             </audio>
@@ -41,6 +46,15 @@
                 {{ $slot  }}
             </div>
         </div>
-        <img src="https://media.giphy.com/media/1oE3Ee4299mmXN8OYb/giphy.gif" class="image">
+        <div class="medias-gifs">
+          <img src="https://media.giphy.com/media/1oE3Ee4299mmXN8OYb/giphy.gif" class="image">
+          <br>
+          <video controls width="300" loop autoplay muted>
+            <source src=" {{ asset('assets/dogo.mp4') }}" type="video/mp4">
+          </video>
+          <br>
+          <a href="https://twitter.com/3Dgifdubstep" target="_blank">⚠️⚠️BEST TWITTER ACCOUNT ⚠️⚠️</a>
+        </div>
+        
     </body>
 </html>
