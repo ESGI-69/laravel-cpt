@@ -18,6 +18,11 @@
     </head>
     <body class="app" style="background-image: url({{ asset('assets/144p-garfield.gif') }})">
         <div class="content">
+          <nav class="navbar">
+            <a href="{{ route('feed') }}">Home</a>
+            <a href="{{ route('my') }}">My account</a>
+            <a href="{{ route('add-crime-page') }}">Add crime</a>
+          </nav>
           <div class="welcome-div">
             <img src="{{asset('assets/dallas.gif')}}" alt="dallas">
             <p class="welcome-title">Welcome on {{config('app.name')}}</p>
