@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CrimeController;
+use App\Http\Controllers\WeaponController;
 use App\Models\Crime;
 
 /*
@@ -22,6 +23,10 @@ Route::get('/', [CrimeController::class, 'displayCrimes'])->name('feed');
 Route::get('/add', [CrimeController::class, 'addCrime'])
 ->middleware(['auth'])
 ->name('add-crime-page');
+
+Route::get('/add-weapon', [WeaponController::class, 'addWeapon'])
+->middleware(['auth'])
+->name('add-weapon');
 
 Route::get('/my', [ProfileController::class, 'showProfile'])
     ->middleware(['auth'])
@@ -49,6 +54,8 @@ Route::controller(ApiController::class)->group(function () {
     Route::post('/custom-api/crime', 'createCrime')->middleware(['auth'])->name('custom-api.add-crime');
     Route::put('/custom-api/crime', 'editCrime')->middleware(['auth'])->name('custom-api.edit-crime');
     Route::delete('/custom-api/crime', 'deleteCrime')->middleware(['auth'])->name('custom-api.delete-crime');
+    Route::post('/custom-api/weapon', 'createWeapon')->middleware(['auth'])->name('custom-api.add-weapon');
+
 });
 
 require __DIR__.'/auth.php';

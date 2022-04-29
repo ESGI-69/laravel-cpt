@@ -22,6 +22,7 @@
             <a href="{{ route('feed') }}">Home</a>
             <a href="{{ route('my') }}">My account</a>
             <a href="{{ route('add-crime-page') }}">Add crime</a>
+            <a href="{{ route('add-weapon') }}">Add weapon</a>
           </nav>
           <div class="welcome-div">
             <img src="{{asset('assets/dallas.gif')}}" alt="dallas">
