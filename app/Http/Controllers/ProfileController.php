@@ -12,11 +12,11 @@ class ProfileController extends Controller
 {
     public function showProfile ()
     {
-     $crimes = Crime::where('user_id', Auth::user()->id)
-     ->orderBy('created_at', 'desc')
-     ->get();
-
-      return view('profile', ['user' => Auth::user(), 'crimes' => $crimes]);
+        $currentAuthUserId = auth()->check() ? auth()->user()->id : null;
+        $crimes = Crime::where('user_id', Auth::user()->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return view('profile', ['user' => Auth::user(), 'crimes' => $crimes, 'currentAuthUserId' => $currentAuthUserId]);
     }
 
     public function editProfile (User $user)
