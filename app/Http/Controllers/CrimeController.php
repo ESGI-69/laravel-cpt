@@ -21,6 +21,13 @@ class CrimeController extends Controller
         return view('add-crime', compact(['cities', 'weapons']));
     }
 
+    public function editCrime(Request $request){
+      $crime = Crime::findOrFail($request->id);
+      $weapons = Weapon::all();
+      $cities = City::all();
+      return view('edit-crime', compact(['crime', 'weapons', 'cities']));
+    }
+
     public function create_crime (){
         
     }
