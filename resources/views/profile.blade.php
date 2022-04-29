@@ -13,18 +13,41 @@
 
     <h3>My crimes</h3>
     @foreach ($crimes as $crime)
-        <ul style="background-color: crimson">
-            <li>title : {{ $crime->title }}</li>
-            <li>description : {{ $crime->description }}</li>
-            <li>weapon used : {{ $crime->weapon->name }}</li>
-            <li>date : {{ $crime->created_at }}</li>
-            <li>city : {{ $crime->city->name }}</li>
-            <li>country : {{ $crime->city->country->name }}</li>
-            <li>victim : {{ $crime->victim }}</li>
-            @if ($crime->updated_at != $crime->created_at)
-                <li>modified : {{ $crime->updated_at }}</li>
+        <article>
+            <h2>
+                {{ $crime->title }}
+            </h2>
+            <p>
+                {{ $crime->description }}
+            </p>
+            <p>
+                Victime : {{ $crime->victim }}
+            </p>
+            <p>
+                Weapon : {{ $crime->weapon->name }}
+            </p>
+            <p>
+                City : {{ $crime->city->name }} ({{ $crime->city->country->name }})
+            </p>
+            <p>
+                Criminal : {{ $crime->user->name }}
+            </p>
+            @if($crime->user->id === $currentAuthUserId)
+                <form method="GET" action="{{ route('edit-crime-page', ['id' => $crime->id]) }}">
+                    @csrf
+                    <button type="submit">
+                        Edit
+                    </button>
+                </form>
+                <form method="POST" action="{{ route('custom-api.delete-crime', ['id' => $crime->id]) }}">
+                    @csrf
+                    @method('delete')
+                    <button type="submit">
+                        Delete
+                    </button>
+                </form>
             @endif
-        </ul>
+        </article>
         <br>
     @endforeach
 
